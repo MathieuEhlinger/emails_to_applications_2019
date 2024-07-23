@@ -1,0 +1,169 @@
+\documentclass[a4paper, 9pt]{extletter} 
+\usepackage{nopageno}
+\usepackage{phonenumbers}
+\usepackage{tabularx}
+\usepackage{tabularx,array, lipsum}
+\usepackage{cellspace}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+\newenvironment{myTextfield}
+
+
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+\addparagraphcolumntypes{X}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+\usepackage[paper=a4paper, left=15mm, right=20mm, top=20mm, bottom=15mm]{geometry}
+
+\newcolumntype{R}{>{\raggedright\arraybackslash}X}%
+
+
+\begin{document} 
+\begin{Form}
+
+\begin{flushright}
+	Düsseldorf, den \today\\
+	(Ilhan) \phonenumber[area-code-sep=brackets]{0211 - 81 - 12615} \\
+% 	(Häser) \phonenumber[area-code-sep=brackets]{0211 - 81 - 15841} \\
+\end{flushright}
+Zentrum/Institut/Klinik
+\begin{enumerate}
+   \item Über die Vorsitzenden der Komission zur Verteilung der Stunden für stud. und wiss. Hilfskräfte\footnote{siehe Seite 2 \--Anschrift\--}
+   \item Über die Dekanin/den Dekan der Medizinischen Fakultät \\ (\textbf{Ziffer 1. und 2. entfällt bei Finanzierung über Drittmittel})
+   \item An die Personalabteilung des Universitätsklinikums Düsseldorf 
+\end{enumerate}
+
+\underline{Betrifft:}
+
+
+
+\begin{center}	
+	\begingroup
+	\setlength{\tabcolsep}{1em} 
+	\begin{tabular}{l c c c }	  
+	  Antrag auf  & 	  
+		\ChoiceMenu[combo,name=typeEmp1,height=0.1cm,width=2.5cm,borderwidth=0,backgroundcolor={0.95 0.95 0.95}]{}{Einstellung,Weiterbeschäftigung,Wiedereinstellung}
+	  & 
+	  	einer 
+	  &	  
+	  	\ChoiceMenu[combo,name=typeEmp2,width=2.5cm,borderwidth=0,backgroundcolor={0.95 0.95 0.95}]{}{stud. Hilfskraft,wiss. Hilfskraft} \\
+	\end{tabular} 
+	 
+	 
+	\begin{tabular}{l c c c }	
+	  	für die Zeit vom 
+ 	&
+ 		\TextField[name=timeFrom,align=1,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}  
+ 	&
+ 	  	bis 
+ 	&
+ 		\TextField[name=timeTo,align=1,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}  
+	\end{tabular}
+	 
+	\endgroup	 
+\end{center}
+
+
+
+mit einer durchschnittlichen wöchentlichen Arbeitszeit von \textbf{8} Stunden (max. 17 Std. / min 3 Std.)
+Gesamtstundenanzahl: \textbf{32} Stunden 
+
+
+
+
+\begin{center}
+\begin{tabularx}{\columnwidth}{|X|R|}
+  \hline
+  \textsf{Name:} \hspace{3.5mm} \TextField[name=vname,width=6.5cm,value={Max},bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}
+  &
+  \textsf{Nachname:} \TextField[name=nname,width=5cm,value={Mustermann},bordercolor=,backgroundcolor={0.95 0.95 0.95}]{} \\
+  \hline
+\end{tabularx}
+\begin{tabularx}{\columnwidth}{|X|R|}
+  \textsf{Anschrift:} \TextField[name=adresse,width=6.5cm,value={Hauptstrasse 31. 40211 Düsseldorf},bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}
+  &
+  \textsf{Telefon:} \hspace{3.1mm} \TextField[name=telefon,width=4cm,value={0176123456},bordercolor=,backgroundcolor={0.95 0.95 0.95}]{} \\
+  \hline
+\end{tabularx}
+\end{center}
+
+
+für die Lehrveranstaltung: \hspace{2.4mm} \ChoiceMenu[combo,name=kursName,borderwidth=0,width=8.5cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}{(Ilhan) \textbf{Makroskopisch Anatomischer Kurs},(Häser) \textbf{Mikroskopisch Anatomischer Kurs}}
+
+\begin{myTextfield}
+	\renewcommand*{\LayoutTextField}[2]{\makebox[0.6em][l]{#1}\raisebox{\baselineskip}{\raisebox{-\height}{#2}}}
+	für Dienstleistungsaufgaben: \TextField[multiline,name=aBeschr,bordercolor=,width=0.5\textwidth,height=1cm,value={},backgroundcolor={0.95 0.95 0.95}]{}
+\end{myTextfield}
+\hspace{5.2cm} (kurze Angaben zur zu verrichtenden Tätigkeit)
+
+\textbf{Die stud./wiss. Hilfskraft wird:}
+
+\begin{enumerate}
+  \renewcommand{\arraystretch}{0.5}
+  \item umgang mit Stoffen nach der Gefahrstoffverordnung haben \hfill \CheckBox[name=j1,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Ja} \CheckBox[name=n1,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Nein}
+  \item Röntgen-/Strahlenschutzbereich eingesetzt \hfill \CheckBox[name=j2,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Ja} \CheckBox[name=n2,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Nein}
+  \item Infektiösem- oder Infektionsverdächtigem zu tun haben \hfill \CheckBox[name=j3,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Ja} \CheckBox[name=n3,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Nein}
+  \item im Laborbereich eingesetzt \hfill \CheckBox[name=j4,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Ja} \CheckBox[name=n4,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Nein}
+  \item in Sektionsräumen tätig sein \hfill \CheckBox[name=j5,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Ja} \CheckBox[name=n5,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Nein}
+  \item in der stationären-/ambulanten Krankenversorgung eingesetzt \hfill \CheckBox[name=j6,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Ja} \CheckBox[name=n6,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{Nein}
+\end{enumerate}
+
+
+
+\CheckBox[name=weekdays,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{} Beschäftigung erfolgt an folgenden Wochentagen:
+
+\begin{tabular}{llll}
+	Montag: & \TextField[name=mmVon,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{von } & \TextField[name=moBis,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{bis } & Uhr \\
+	Dienstag: & \TextField[name=dVon,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{von } & \TextField[name=diBis,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{bis } & Uhr \\
+	Mittwoch: & \TextField[name=miVon,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{von } & \TextField[name=miBis,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{bis } & Uhr \\
+	Donnerstag: & \TextField[name=doVon,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{von } & \TextField[name=doBis,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{bis } & Uhr \\
+	Freitag: & \TextField[name=frVon,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{von } & \TextField[name=frBis,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{bis } & Uhr \\
+\end{tabular}
+	
+\CheckBox[name=tutor,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{} mit Tutorentätigkeit im Umfang von \TextField[name=aBesch,align=1,width=1cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{} \hspace{1mm} Stunden wöchentlich. 
+	
+	
+% \begin{tabularx}{\textwidth}{lX}
+% 	Für: 
+%  	&
+% 	\TextField[name=forTut,width=14cm,value={},bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}
+%  	\\
+% 	
+% 	&
+% 	(Art des Tutoriums s. §1 Abs. 3 Buchst. a-g der Dienstverträge für szud./wiss. Hilfskräfte)
+% \end{tabularx}
+
+Für: \TextField[name=forTut,width=14cm,value={},bordercolor=,backgroundcolor={0.95 0.95 0.95}]{} \\ 
+\phantom{Für:} \hspace{1ex}(Art des Tutoriums s. §1 Abs. 3 Buchst. a-g der Dienstverträge für szud./wiss. Hilfskräfte)
+	
+	
+Falls nicht aus Hilfskraftstunden-Kontingent der Med. Fakultät, Finanzierung durch:			
+	
+\begin{tabular}{clrl}
+
+\CheckBox[name=drittMittel,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}\hspace{0.2cm}Drittmittel:
+&
+\TextField[name=projectName,width=5cm,value={},bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}
+&
+\CheckBox[name=freiWiss,width=0.4cm,height=0.4cm,bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}\hspace{0.2cm}freie wiss. Stelle:
+&
+\TextField[name=stellBeschr,width=5cm,value={},bordercolor=,backgroundcolor={0.95 0.95 0.95}]{}
+
+\\
+
+&
+\hspace{1cm}(Projektbezeichnung)
+&
+
+&
+\hspace{1cm}(Stellenbezeichnung)
+\end{tabular}
+
+	
+	
+\end{Form}
+\end{document}
